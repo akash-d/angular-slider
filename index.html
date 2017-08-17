@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <meta name="theme-color" content="#eeedef" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Angular 1</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        .slider img {
+            /* display: none; */
+            max-width: 600px;
+        }
+        
+        .slider img.show {
+            display: block;
+        }
+        
+        .dots {
+            width: 10px;
+            height: 10px;
+            background-color: #ccc;
+            display: inline-block;
+            border-radius: 50%;
+            margin: 5px;
+            cursor: pointer;
+        }
+        
+        .active {
+            background-color: #6b6b6b;
+        }
+    </style>
+</head>
+
+<body ng-app="app">
+    <div class="container">
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Brand</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
+                            <li ui-sref-active="active"><a href="#" ui-sref="about">About</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <h1>Welcome to angular {{2+2}}</h1>
+        <!-- <div ng-controller="DoughnutCtrl" style="max-width:300px;">
+            <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels"></canvas>
+        </div> -->
+        <!-- <br> -->
+        <div ng-controller="main">
+            <div class="slider">
+                <img ng-swipe-left="addP()" ng-swipe-right="subP()" src="{{array[value]}}" alt="image">
+            </div>
+            <ul>
+                <li class="dots" ng-click="directClick($index)" ng-class="{'active':$index==value}" ng-repeat="data in array"></li>
+            </ul>
+            <!-- ng-class="{'show':value==1}" -->
+            <div>
+                <h4 ng-click="subP()">Prev</h4>
+                <h4 ng-click="addP()">Next</h4>
+            </div>
+        </div>
+
+        <!-- <div ui-view></div> -->
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+    <script src="angular-chart.min.js"></script>
+    <script src="//code.angularjs.org/snapshot/angular-touch.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

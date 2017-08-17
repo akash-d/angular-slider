@@ -1,0 +1,151 @@
+@import "variables.scss";
+// common-styles
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+// section one
+.grey-bg {
+    display: none;
+    @media screen and (min-width: 768px) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        min-height: 200px;
+        background-color: $grey-color;
+        display: block;
+    }
+}
+
+.clear {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.main {
+    @extend .clear;
+    position: relative;
+    @media screen and (min-width: 768px) {
+        padding: 50px;
+    }
+    @media screen and (min-width:1200px) {
+        padding: 100px 40px 0px 200px;
+    }
+}
+
+.banner-holder {
+    position: relative;
+    min-height: 200px;
+    background-color: $dark-grey-color;
+    @media screen and (min-width: 1200px) {
+        display: inline-block;
+        width: 40%;
+        vertical-align: bottom;
+        min-height: 380px;
+    }
+    .notification-box {
+        position: absolute;
+        bottom: 40px;
+        right: 0;
+        width: 85%;
+        background-color: #fff;
+        padding: 15px;
+        border-bottom: 5px solid $blue-color;
+        p {
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0;
+            color: $blue-color;
+        }
+        @media screen and (min-width:768px) {
+            right: auto;
+            bottom: -40px;
+            left: -1px;
+            width: 90%;
+            padding: 15px 25px;
+        }
+        @media screen and (min-width:1200px) {
+            right: -220px;
+            left: auto;
+            top: 60px;
+            bottom: auto;
+            width: 65%;
+        }
+    }
+    @media (min-width: 768px) and (max-width: 1199px) {
+        float: left;
+        width: 50%;
+        min-height: 296px;
+    }
+}
+
+.content-holder {
+    padding: 0 15px;
+    background-color: #fff;
+    @media (min-width: 768px) and (max-width: 1199px) {
+        float: left;
+        width: 50%;
+    }
+    @media screen and (min-width: 1200px) {
+        display: inline-block;
+        width: 50%;
+        vertical-align: bottom;
+    }
+    .text {
+        font-size: 14px;
+        margin: 0;
+        padding-right: 10px;
+        @media screen and (min-width: 1200px) {
+            margin-bottom: 60px;
+        }
+    }
+    .box {
+        height: 56px;
+        background-color: $dark-grey-color;
+    }
+    .column {
+        padding: 20px 0;
+        border-bottom: 1px dotted $dark-grey-color;
+        @extend .clear;
+        @media screen and (min-width: 1200px) {
+            border-bottom: 0;
+            padding: 0px 15px;
+            border-right: 1px dotted #d8d8d8;
+            display: inline-block;
+            width: 32%;
+            &:last-child {
+                border-right: 0;
+            }
+        }
+        .inline-div {
+            float: left;
+            &:first-child {
+                width: 60%;
+                @media screen and (min-width: 1200px) {
+                    width: 100%;
+                }
+            }
+            &:last-child {
+                width: 40%;
+                @media screen and (min-width: 1200px) {
+                    width: 100%;
+                }
+            }
+            @media screen and (min-width: 1200px) {
+                float: none;
+            }
+        }
+    }
+}
